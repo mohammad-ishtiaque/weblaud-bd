@@ -1,6 +1,6 @@
-import { Welcome } from "../welcome/welcome";
 import Navbar from "~/components/Layout/Navbar";
 import Hero from "~/components/Sections/Hero";
+import Services from "~/components/Sections/Services";
 import type { MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
@@ -15,6 +15,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
+      <Services />
       {/* other sections if needed */}
     </div>
   );
