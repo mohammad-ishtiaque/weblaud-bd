@@ -1,11 +1,11 @@
 import type { MetaFunction } from "react-router";
-import Navbar from "~/components/Layout/Navbar";
-import Footer from "~/components/Layout/Footer";
 import Hero from "~/components/Sections/Hero";
 import Services from "~/components/Sections/Services";
 import About from "~/components/Sections/About";
 import Projects from "~/components/Sections/Projects";
-import Contact from "~/components/Sections/Contact";
+import WhyChooseUs from "~/components/Sections/WhyChooseUs";
+import WhyWeStarted from "~/components/Sections/WhyWeStarted";
+import FAQ from "~/components/Sections/FAQ";
 
 export const meta: MetaFunction = () => {
   return [
@@ -24,13 +24,13 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="min-h-screen">
-      <Navbar />
       <Hero />
       <Services />
       <About />
       <Projects />
-      <Contact />
-      <Footer />
+      <WhyChooseUs />
+      <WhyWeStarted />
+      <FAQ />
     </div>
   );
 }

@@ -1,73 +1,54 @@
-import type { TeamMember, Stat } from "~/types";
+import { Link } from "react-router";
+import { ArrowRight } from "lucide-react";
 
 export default function About() {
-  const stats: Stat[] = [
-    { number: "12+", label: "Years in Development" },
-    { number: "$2B+", label: "Website Development" },
-    { number: "100+", label: "Custom Mobile Apps" },
-    { number: "25+", label: "AI Projects" }
-  ];
-
-  const team: TeamMember[] = [
-    { name: "SY Hriday", role: "CO-Founder", position: "Full Stack Developer" },
-    { name: "SY Hriday", role: "Google Designer", position: "UI/UX Designer" },
-    { name: "SY Hriday", role: "Team Member", position: "Backend Developer" },
-    { name: "SY Hriday", role: "Team Member", position: "Project Manager" }
-  ];
-
   return (
-    <section id="about" className="py-20 bg-base-100">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">About Us</h2>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <div>
-            <h3 className="text-2xl font-bold mb-6">We're Engineers of Intelligent Change</h3>
-            <p className="text-lg mb-6">
-              We are a full-service digital agency passionate about transforming ideas into innovative digital products. 
-              With a strong focus on emerging tech and research design & development, we aim to create solutions that 
-              not only look stunning but also deliver measurable results.
-            </p>
-            <p className="text-lg mb-6">
-              Our team of experienced designers, developers, and strategists work hand in hand to understand your 
-              business goals and turn them into intuitive, user-friendly, and scalable digital experiences.
-            </p>
+    <section className="bg-black text-white py-24 px-6 lg:px-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Left Side — Abstract Shape */}
+        <div className="relative flex justify-center items-center">
+          <div className="grid grid-cols-2 gap-6 w-[80%] md:w-[75%]">
+            <div className="bg-gray-300 rounded-tl-[80px] rounded-tr-[0px] rounded-bl-[0px] rounded-br-[0px] aspect-square" />
+            <div className="bg-gray-300 aspect-square" />
+            <div className="bg-gray-300 aspect-square rounded-bl-[80px]" />
+            <div className="bg-gray-300 aspect-square" />
           </div>
-          <div className="stats stats-vertical lg:stats-horizontal shadow">
-            {stats.map((stat: Stat, index: number) => (
-              <div key={index} className="stat">
-                <div className="stat-value text-primary">{stat.number}</div>
-                <div className="stat-desc">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+
+          {/* Decorative floating shape */}
+          <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-gradient-to-br from-blue-700 to-teal-400 rounded-full blur-xl opacity-60 animate-pulse" />
         </div>
 
-        {/* Team Section */}
-        <div className="text-center mb-16">
-          <h3 className="text-3xl font-bold mb-8">Meet Our Creative Team</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member: TeamMember, index: number) => (
-              <div key={index} className="card bg-base-200 shadow-lg">
-                <div className="card-body text-center">
-                  <div className="avatar placeholder mx-auto mb-4">
-                    <div className="bg-neutral text-neutral-content rounded-full w-16">
-                      <span className="text-xl">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
-                  </div>
-                  <h4 className="card-title justify-center">{member.name}</h4>
-                  <p className="font-semibold text-primary">{member.role}</p>
-                  <p className="text-sm">{member.position}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Right Side — Content */}
+        <div className="space-y-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold">About <span className="text-white">US</span></h2>
 
-        <div className="text-center">
-          <button className="btn btn-primary btn-lg">GET STARTED NOW</button>
+          <p className="text-gray-300 leading-relaxed">
+            We are a full-service digital agency passionate about transforming ideas into impactful digital products. 
+            With a strong focus on mobile app and website design & development, we aim to create solutions that not 
+            only look stunning but also deliver measurable results.
+          </p>
+
+          <p className="text-gray-300 leading-relaxed">
+            Our team of experienced designers, developers, and strategists work hand in hand to understand your business 
+            goals and turn them into intuitive, user-friendly, and scalable digital experiences. Whether it's building a 
+            custom mobile application, designing a responsive website, or creating a complete digital ecosystem, we 
+            combine creativity and technology to bring your vision to life.
+          </p>
+
+          <p className="text-gray-300 leading-relaxed">
+            At our agency, we value collaboration, transparency, and innovation. Every project is treated as a partnership, 
+            where your success is our ultimate priority. By staying up to date with the latest technologies, design trends, 
+            and market demands, we ensure that our clients receive future-ready solutions that give them a competitive edge.
+          </p>
+
+          {/* Explore Button */}
+          <Link
+            to="/about/details"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-blue-700/40 hover:scale-105 transition-all duration-300"
+          >
+            Explore Now
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </div>
     </section>

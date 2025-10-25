@@ -6,17 +6,32 @@ export default function Services() {
 
   const services = [
     {
-      title: "Let's Learn UI/UX Design",
-      description: "Learn how to become a UI/UX designer and start your course.",
-      button: "Come Join Us",
-      image: "/images/uiux-service.png",
+      id: "ai-mobile-app",
+      title: "AI Mobile App Design & Development",
+      description: "Transform your business with intelligent mobile applications powered by cutting-edge AI technology.",
+      button: "Learn More",
+      image: "/images/ai-service.png",
     },
     {
-      title: "Website Development Service",
-      description:
-        "E-commerce Website Setup, Landing Pages, Sales Funnels, and Custom Websites.",
+      id: "blockchain-development",
+      title: "Blockchain Development",
+      description: "Build secure, decentralized applications with our expert blockchain development services.",
+      button: "Learn More", 
+      image: "/images/blockchain-service.png",
+    },
+    {
+      id: "algorithmic-trading",
+      title: "Algorithmic Trading",
+      description: "Automate your trading strategies with our advanced algorithmic trading solutions.",
       button: "Learn More",
-      image: "/images/webdev-service.png",
+      image: "/images/trading-service.png",
+    },
+    {
+      id: "ecommerce-solutions",
+      title: "Retail & E-commerce",
+      description: "AI-powered solutions for personalization and inventory management in retail.",
+      button: "Learn More",
+      image: "/images/retail-service.png",
     },
   ];
 
@@ -59,9 +74,12 @@ export default function Services() {
                   <p className="text-gray-200 mb-6 leading-relaxed">
                     {service.description}
                   </p>
-                  <button className="bg-white text-blue-700 font-semibold px-5 py-2 rounded-md hover:bg-gray-200 transition">
+                  <a 
+                    href={`/services/${service.id}`}
+                    className="bg-white text-blue-700 font-semibold px-5 py-2 rounded-md hover:bg-gray-200 transition"
+                  >
                     {service.button}
-                  </button>
+                  </a>
                 </div>
 
                 {/* Right Image */}
