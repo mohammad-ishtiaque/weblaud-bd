@@ -1,8 +1,4 @@
-import { useState } from "react";
-
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   const faqs = [
     {
       question: "What services does Dev Nest provide?",
@@ -26,10 +22,6 @@ export default function FAQ() {
     }
   ];
 
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <section className="bg-black text-white py-20 px-6 lg:px-20">
       <div className="max-w-4xl mx-auto">
@@ -37,27 +29,17 @@ export default function FAQ() {
         
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-[#111111] border border-[#1b1b1b] rounded-2xl overflow-hidden">
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full p-6 text-left flex items-center justify-between hover:bg-[#1a1a1a] transition"
-              >
-                <div className="flex items-center gap-4">
-                  <span className="text-blue-500 font-bold text-lg">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="text-lg font-semibold">{faq.question}</h3>
-                </div>
-                <span className="text-2xl text-gray-400">
-                  {openIndex === index ? '×' : '+'}
+            <div key={index} className="collapse collapse-arrow bg-[#111111] border border-[#1b1b1b] rounded-2xl">
+              <input type="radio" name="faq-accordion" defaultChecked={index === 0} />
+              <div className="collapse-title text-lg font-semibold flex items-center gap-4">
+                <span className="text-blue-500 font-bold text-lg">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-              </button>
-              
-              {openIndex === index && (
-                <div className="px-6 pb-6">
-                  <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
-                </div>
-              )}
+                {faq.question}
+              </div>
+              <div className="collapse-content">
+                <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+              </div>
             </div>
           ))}
         </div>
